@@ -7,14 +7,15 @@ load_dotenv()
 TWILIO_ACCOUNT_SID = os.getenv('TWILIO_ACCOUNT_SID')
 TWILIO_AUTH_TOKEN = os.getenv('TWILIO_AUTH_TOKEN')
 URL = os.getenv('URL')
-TWILIO_NUMBER = os.getenv('TWILIO_NUMBER')
+FROM_NUMBER = os.getenv('FROM_NUMBER')
 MY_NUMBER = os.getenv('MY_NUMBER')
+SMS = os.getenv('SMS')
 
 def sms():
     client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
     message = client.messages.create(
-        body='Server is down. The End of the World',  
-        from_= TWILIO_NUMBER,  
+        body= SMS,  
+        from_= FROM_NUMBER,  
         to= MY_NUMBER,  
         ) 
     return message.sid    
